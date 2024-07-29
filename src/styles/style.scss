@@ -1,0 +1,142 @@
+@import 'kit/variables';
+
+
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: $font-family_1;
+  scroll-behavior: smooth;
+  body {
+    font-family: $font-family_1;
+    background-color: $background-color_1;
+    text-align: center;
+    scroll-behavior: smooth;
+    font-family: "Inter", sans-serif;
+    display: flex;
+  justify-content: center; 
+  align-items: center; 
+
+    h5 {
+      font-family: $font-family_2;
+      font-weight: 100;
+    }
+    h1{
+      padding: 10px;
+      font-size: 26px;
+    }
+
+    .container {
+      background-color: $background-color_2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 400px;
+      text-align: center;
+      width: 100%;
+      margin-top: 35%;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .logo-img {
+        margin-right: 10px;
+      }
+
+      .logo-text {
+        display: flex;
+        align-items: center;
+
+        h2 {
+          
+          margin: 0;
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 12px;
+    }
+
+    input[type="submit"] {
+      background-color: $background-color_3;
+      color: $color_1;
+      border: none;
+      padding: 10px;
+      border-radius: 50px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 15px;
+
+      &:hover {
+        background-color: $background-color_4;
+      }
+    }
+
+    a {
+      display: block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: $color_2;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      text-align: left;
+    }
+
+    .logo-container {
+      justify-content: flex-start;
+      width: 100%;
+    }
+    
+    h1, h2, h5 {
+        text-align: left;
+        width: 100%;
+      }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    .error,
+    a {
+      text-align: left;
+    }
+  }
+}

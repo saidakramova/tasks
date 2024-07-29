@@ -1,0 +1,119 @@
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Times New Roman", Times, serif;
+  scroll-behavior: smooth;
+}
+html body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: rgb(223, 220, 216);
+  text-align: center;
+  scroll-behavior: smooth;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html body h5 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 100;
+}
+html body h1 {
+  padding: 10px;
+  font-size: 26px;
+}
+html body .container {
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  width: 100%;
+  margin-top: 35%;
+}
+html body .logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+html body .logo-container .logo-img {
+  margin-right: 10px;
+}
+html body .logo-container .logo-text {
+  display: flex;
+  align-items: center;
+}
+html body .logo-container .logo-text h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+html body label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+html body input[type=text],
+html body input[type=email],
+html body input[type=password] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+html body input[type=submit] {
+  background-color: rgb(85, 13, 153);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 15px;
+}
+html body input[type=submit]:hover {
+  background-color: blueviolet;
+}
+html body a {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: rgb(117, 117, 195);
+}
+html body a:hover {
+  text-decoration: underline;
+}
+html body .error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  html .container {
+    text-align: left;
+  }
+  html .logo-container {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  html h1, html h2, html h5 {
+    text-align: left;
+    width: 100%;
+  }
+  html input[type=text],
+  html input[type=email],
+  html input[type=password],
+  html .error,
+  html a {
+    text-align: left;
+  }
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,404 @@
+@import './kit/mixins.scss';
+@import './kit/variables.scss';
+
+  
+.containers {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1550px;
+    padding: 0px 80px;
+  
+    @include lg {
+      padding: 0 40px;
+    }
+  
+    @include md {
+      padding: 0 20px;
+    }
+  
+    @include sm {
+      padding: 0 10px;
+    }
+  }
+  
+
+//   reset part
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  background-color: transparent;
+}
+
+.visually-hidden {
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  clip-path: inset(100%);
+}
+ 
+// typo
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    scroll-behavior: smooth;
+    font-family: "Inter", sans-serif;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+//  header
+.header {
+    padding: 22.5px 0px;
+    background-color: $header__background-color;
+    border-bottom: 1px solid $header__text-color;
+  
+    &__containers {
+      @include flexLayout(flex, space-between, center, 0, row nowrap);
+    }
+  
+    &__block {
+      @include flexLayout(flex, flex-start, center, 10px, row nowrap);
+      &-logo {
+        width: 20px;
+        height: 20px;
+      }
+  
+      &-logo-texts {
+        @include headingFonts($header__text-color, 14.48px, 600, 17.52px, none);
+      }
+    }
+  
+    &-back-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  
+//   modal
+.modal {
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    position: fixed;
+    min-height: 100vh;
+    background-color: $modal__background-color;
+  
+    &--active {
+      @include flexLayout(flex, center, center, 0, row nowrap);
+    }
+  
+    &__containers {
+      padding: 16px;
+      margin: 0 auto;
+      max-width: 495px;
+      min-height: 475px;
+      border-radius: 4px;
+      background-color: $header__text-color;
+      box-shadow: 0px 4px 24px 0px $card__shadow-color;
+    }
+  
+    &__top {
+      @include flexLayout(flex, space-between, center, 0, row nowrap);
+      &-heading {
+        @include headingFonts($header__background-color, 20px, 600, 26px, none);
+      }
+  
+      &-close-icon {
+        width: 12px;
+        height: 12px;
+        cursor: pointer;
+      }
+    }
+  
+    &__bottom {
+      @include flexLayout(flex, space-between, center, 0, row nowrap);
+      &-btn {
+        padding: 8px;
+        border: none;
+        background-color: transparent;
+        transition: opacity 150ms linear;
+  
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      &-icon {
+        width: 12px;
+        height: 12px;
+      }
+  
+      &-text {
+        @include headingFonts($delete-color, 14px, 500, 19.6px, none);
+      }
+  
+      &-save {
+        @include Button(
+          $button__active-color,
+          1px solid $button__active-color,
+          4px,
+          8px 18px,
+          opacity 150ms linear
+        );
+        @include headingFonts($header__text-color, 14px, 500, 19.6px, none);
+  
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  
+    &__select {
+      appearance: none;
+      width: 100%;
+      padding: 5px;
+      border: none;
+      max-width: 288px;
+    }
+  
+    &__item {
+      padding: 16px 0px;
+      @include flexLayout(flex, space-between, center, 0, row nowrap);
+  
+      &-title {
+        @include headingFonts($tab__text-color, 14px, 400, 22.4px, none);
+      }
+    }
+  }
+//  tab  
+.tab {
+    padding: 28px 0px;
+  
+    &__list {
+      border-bottom: 1px solid $tab__border-color;
+      @include flexLayout(flex, flex-start, center, 28px, row nowrap);
+    }
+  
+    &__item {
+      &-btn {
+        border: none;
+        padding: 8px 0px;
+        position: relative;
+        background-color: transparent;
+        @include headingFonts($tab__text-color, 16px, 400, 25.6px, none);
+  
+        &--active {
+          color: $button__active-color;
+          &::after {
+            left: 0;
+            bottom: 0;
+            content: "";
+            height: 1px;
+            width: 100%;
+            position: absolute;
+            background-color: $button__active-color;
+          }
+        }
+      }
+    }
+  }
+
+
+//    tdo
+.todo {
+    margin-bottom: 150px;
+  
+    @include md {
+      margin-bottom: 75px;
+    }
+    &__item {
+      padding: 12px;
+      background-color: $todo__item-background-color;
+    }
+  
+    &__list {
+      @include gridLayout(grid, 4, space-between, flex-start, 16px);
+      grid-template-columns: repeat(4, 1fr);
+  
+      @include defaultMediaQuery(1230px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+  
+      @include sm {
+        grid-template-columns: 1fr;
+      }
+    }
+  
+    &__top {
+      margin-bottom: 25px;
+      @include flexLayout(flex, space-between, center, 0, row nowrap);
+      &-heading {
+        @include headingFonts($header__background-color, 16px, 600, 20.8px, none);
+      }
+  
+      &-btn {
+        @include flexLayout(flex, center, center, 0, row nowrap);
+        @include Button(
+          $header__text-color,
+          1px solid $header__text-color,
+          4px,
+          8px,
+          none
+        );
+      }
+    }
+  
+    &__cards {
+      width: 100%;
+      margin-bottom: 12px;
+      @include flexLayout(flex, flex-start, flex-start, 12px, column nowrap);
+    }
+  
+    &__card {
+      width: 100%;
+      padding: 12px;
+      border-radius: 4px;
+      background-color: $header__text-color;
+      box-shadow: 0px 4px 24px 0px $card__shadow-color;
+  
+      &-title {
+        margin-bottom: 6px;
+        @include headingFonts($header__background-color, 16px, 600, 20.8px, none);
+      }
+  
+      &-text {
+        line-clamp: 2;
+        overflow: hidden;
+        margin-bottom: 16px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        @include headingFonts($tab__text-color, 12px, 400, 19.2px, none);
+      }
+    }
+  
+    &__footer {
+      @include flexLayout(flex, space-between, center, 0, row nowrap);
+  
+      &-span {
+        padding: 5px 10px;
+        border-radius: 4px;
+        display: inline-block;
+        background-color: $editor__background-color;
+        @include headingFonts($editor-color, 10px, 400, 16px, none);
+  
+        &--medium {
+          background-color: $todo__item-second-color;
+        }
+  
+        &--red {
+          background-color: $todo__third-background-color;
+        }
+      }
+  
+      &-date {
+        @include headingFonts($tab__text-color, 12px, 400, 19.2px, none);
+      }
+    }
+  
+    &-add {
+      border: none;
+      background-color: transparent;
+      @include flexLayout(flex, flex-start, center, 6px, row nowrap);
+    }
+  
+    &-add-icon {
+      width: 10px;
+      height: 10px;
+    }
+  
+    &-add-text {
+      @include headingFonts($button__active-color, 14px, 500, 19.6px, none);
+    }
+  }
+// user  
+
+$editor-color: #303240;
+
+.user {
+  padding: 24px 0px;
+  background-color: $header__background-color;
+
+  &__containers {
+    @include flexLayout(flex, space-between, center, 0, row nowrap);
+  }
+
+  &__block {
+    &-name {
+    //   margin-bottom: 5px;
+      @include flexLayout(flex, flex-start, center, 8px, row nowrap);
+      @include headingFonts($header__text-color, 24px, 400, 31.2px, none);
+
+      @include sm {
+        font-size: 18px;
+      }
+    }
+    &-editor {
+      width: 43px;
+      padding: 4px 6px;
+      border-radius: 4px;
+      text-align: center;
+      background-color: $editor__background-color;
+      @include headingFonts($editor-color, 10px, 400, 12px, none);
+
+      @include sm {
+        font-size: 8px;
+        padding: 2px 4px;
+      }
+    }
+
+    &-primary {
+      @include headingFonts($primary-color, 13.5px, 400, 30px, none);
+    
+    }
+
+    &-number {
+      @include headingFonts($header__text-color, 14.48px, 500, 17.52px, none);
+
+      @include sm {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
